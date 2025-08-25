@@ -1,0 +1,35 @@
+@echo off
+echo =====================================
+echo Meridian M&A Platform - Setup Script
+echo =====================================
+echo.
+
+echo Creating virtual environment...
+python -m venv venv
+
+echo.
+echo Activating virtual environment...
+call venv\Scripts\activate
+
+echo.
+echo Installing dependencies...
+pip install -r requirements.txt
+
+echo.
+echo Generating synthetic data...
+cd scripts
+python generate_data.py
+cd ..
+
+echo.
+echo =====================================
+echo Setup Complete!
+echo =====================================
+echo.
+echo To run the demo:
+echo 1. Activate the virtual environment: venv\Scripts\activate
+echo 2. Launch Jupyter: jupyter lab notebooks\01_Executive_Overview.ipynb
+echo    OR
+echo    Run Streamlit: streamlit run app.py
+echo.
+pause
